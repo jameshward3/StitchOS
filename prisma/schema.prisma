@@ -816,3 +816,30 @@ model MonogramProfile {
   notes               String?
   createdAt           DateTime     @default(now())
 }
+
+
+model Invoice {
+  id             String   @id @default(cuid())
+  organizationId String
+  clientId       String?
+  jobId          String?
+  number         String
+  customerName   String
+  customerEmail  String?
+  status         String   @default("DRAFT")
+  issuedAt       DateTime @default(now())
+  dueAt          DateTime?
+  notes          String?
+  lines          Json
+  taxRateBps     Int      @default(663)
+  subtotalCents  Int
+  taxableCents   Int
+  taxCents       Int
+  totalCents     Int
+  paidCents      Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([organizationId, number])
+  @@index([organizationId, issuedAt])
+}
