@@ -7,7 +7,7 @@ import {
   Palette,
   Cpu,
   ClipboardList,
-  Factory,
+  Factory,\n  ReceiptText,
 } from "lucide-react";
 
 export interface NavItem {
@@ -24,5 +24,5 @@ export const navItems: NavItem[] = [
   { label: "Thread Library", href: "/threads", icon: Palette },
   { label: "Machines", href: "/machines", icon: Cpu },
   { label: "Setups", href: "/setups", icon: ClipboardList },
-  { label: "Production Queue", href: "/jobs", icon: Factory },
+  { label: "Invoices", href: "/invoices", icon: ReceiptText },\n  { label: "Production Queue", href: "/jobs", icon: Factory },
 ];
