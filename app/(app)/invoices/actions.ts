@@ -13,7 +13,7 @@ export async function saveInvoice(input:{id?:string;number:string;customerName:s
  if(input.clientId){const client=await prisma.client.findFirst({where:{id:input.clientId,organizationId}});if(!client)throw new Error("Unknown customer");}
  if(input.jobId){const job=await prisma.job.findFirst({where:{id:input.jobId,organizationId}});if(!job)throw new Error("Unknown job");}
  const totals=calculateInvoice(input.lines);
- const data={number:input.number.trim(),customerName:input.customerName.trim(),customerEmail:input.customerEmail||null,clientId:input.clientId||null,jobId:input.jobId||null,notes:input.notes||null,lines:JSON.parse(JSON.stringify(input.lines)),taxRateBps:663,...totals};
+ const data={number:input.number.trim(),customerName:input.customerName.trim(),customerEmail:input.customerEmail||null,clientId:input.clientId||null,jobId:input.jobId||null,notes:input.notes||null,lines:JSON.parse(JSON.stringify(input.lines)),taxRateBps:6625,...totals};
  if(input.id){
  const count=await prisma.invoice.updateMany({where:{id:input.id,organizationId,status:"DRAFT"},data});
  if(!count.count)throw new Error("Draft not found");revalidatePath("/invoices");return input.id;
