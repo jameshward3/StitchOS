@@ -10,7 +10,7 @@ const { auth } = NextAuth(authConfig);
 const PROTECTED_PREFIXES = [
   "/dashboard",
   "/crm",
-  "/jobs",
+  "/jobs",\n  "/invoices",
   "/machines",
   "/products",
   "/setups",
