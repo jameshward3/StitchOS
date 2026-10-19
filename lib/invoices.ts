@@ -1,5 +1,5 @@
 export type InvoiceLine = {description:string; quantity:number; unitCents:number; taxable:boolean; source?: "MANUAL"|"JOB"|"PRODUCT"; referenceId?:string};
-export const NJ_TAX_BPS = 662.5;
+export const NJ_TAX_RATE = 0.06625;
 export function calculateInvoice(lines:InvoiceLine[], taxRate=0.06625){
  const subtotalCents=lines.reduce((s,l)=>s+Math.round(l.quantity*l.unitCents),0);
  const taxableCents=lines.filter(l=>l.taxable).reduce((s,l)=>s+Math.round(l.quantity*l.unitCents),0);
