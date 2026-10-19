@@ -831,7 +831,7 @@ model Invoice {
   dueAt          DateTime?
   notes          String?
   lines          Json
-  taxRateBps     Int      @default(663)
+  taxRateBps     Int      @default(6625)
   subtotalCents  Int
   taxableCents   Int
   taxCents       Int
